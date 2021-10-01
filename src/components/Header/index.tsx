@@ -1,14 +1,17 @@
 
 //Next
-import Image from 'next/image';
-import logoimg from '../../public/images/logo-chicken2.svg'
+// import Image from 'next/image';
+// import logoimg from '../../public/images/logo-chicken2.svg'
+
+// react
+import Link from 'next/link';
 
 //Components
-import { SignButton }  from '../SignButton'
-
+import { SignButton } from '../SignButton'
+import { ActiveLink } from '../../components/ActiveLink';
 // image
 
-import styles from  './styles.module.scss';
+import styles from './styles.module.scss';
 
 export function Header() {
   return (
@@ -18,10 +21,14 @@ export function Header() {
         <img src="/images/logo-chicken2.svg" alt="logo da header" />
         <h1>I.News</h1>
         <nav>
-          <a className={styles.active} href="">Home</a>
-          <a href="">Post</a>
+          <ActiveLink href="/" activeClassName={styles.active} prefetch>
+            <a >Home</a>
+          </ActiveLink>
+          <ActiveLink href="/posts" activeClassName={styles.active} prefetch>
+            <a >Post</a>
+          </ActiveLink>
         </nav>
-        <SignButton/>
+        <SignButton />
       </div>
     </header>
   );
