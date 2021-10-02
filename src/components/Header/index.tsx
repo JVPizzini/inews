@@ -21,10 +21,10 @@ export function Header() {
         <img src="/images/logo-chicken2.svg" alt="logo da header" />
         <h1>I.News</h1>
         <nav>
-          <ActiveLink href="/" activeClassName={styles.active} prefetch>
+          <ActiveLink href="/" activeClassName={styles.active} >
             <a >Home</a>
           </ActiveLink>
-          <ActiveLink href="/posts" activeClassName={styles.active} prefetch>
+          <ActiveLink href="/posts" activeClassName={styles.active} >
             <a >Post</a>
           </ActiveLink>
         </nav>

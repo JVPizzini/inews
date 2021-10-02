@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "wbstripe" : "stripe listen --forward-to localhost:3000/api/webhooks"
+    "whstripe" : "stripe listen --forward-to localhost:3000/api/webhooks"
   },
   "dependencies": {
     "@prismicio/client": "^5.1.0",
