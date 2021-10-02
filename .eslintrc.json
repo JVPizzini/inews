@@ -1,6 +1,6 @@
 {
   "extends": "next/core-web-vitals",
-  "roles": {
-    "@next/next/no-img-element": "off"
+  "rules":{
+    "react/jsx-key": 0
   }
 }

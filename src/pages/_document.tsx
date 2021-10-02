@@ -1,8 +1,9 @@
+/* eslint-disable */
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 // Image
 
-export default class Mydocuments extends Document {
+ class Mydocuments extends Document {
   render() {
     return (
       <Html>
@@ -22,3 +23,5 @@ export default class Mydocuments extends Document {
     )
   }
 }
+
+export default Mydocuments;

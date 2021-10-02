@@ -1,6 +1,6 @@
 
 //next
-import Head from 'next/Head'
+import Head from "next/Head";
 import { GetStaticProps } from 'next';
 
 //components
