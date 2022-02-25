@@ -7,7 +7,7 @@ import { FiX } from 'react-icons/fi';
 
 //styles
 import styles from './styles.module.scss';
-
+ 
 export function SignButton() {
 
   const [session] = useSession();
