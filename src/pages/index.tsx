@@ -4,7 +4,7 @@ import Head from "next/Head";
 import { GetStaticProps } from 'next';
 
 //components
-import { SubscribreButton } from '../components/SubscribeButton'
+import { SubscribeButton } from '../components/SubscribeButton'
 
 //image
 
@@ -15,7 +15,7 @@ import { stripe } from '../services/stripe';
 type HomeProps = {
   product: {
     priceId: string,
-    amount: number,
+    amount: string,
   }
 
 }
@@ -36,7 +36,7 @@ export default function Home({ product }: HomeProps) {
               <span>for {product.amount} month</span>
 
             </p>
-            <SubscribreButton priceId={product.priceId} />
+            <SubscribeButton />
           </span>
         </section>
 

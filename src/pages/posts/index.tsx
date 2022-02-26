@@ -9,7 +9,6 @@ import styles from './styles.module.scss';
 import Prismic from '@prismicio/client';
 import { RichText } from 'prismic-dom'
 import { useSession } from "next-auth/client";
-import { useRouter } from "next/router";
 
 type post = {
   slug: string,
@@ -35,8 +34,8 @@ export default function Post({ posts }: PostsProps) {
       <main className={styles.container}>
         <div className={styles.post}>
           {posts.map(post => (
-            <Link  href={session ? `posts/${post.slug}` : `posts/preview/${post.slug}`}>
-              <a key={post.slug} >
+            <Link key={post.slug} href={session ? `posts/${post.slug}` : `posts/preview/${post.slug}`}>
+              <a>
                 <time>{post.updatedAt} </time>
                 <strong>{post.title}</strong>
                 <p>{post.excerpt}</p>

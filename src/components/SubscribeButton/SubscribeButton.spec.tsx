@@ -35,7 +35,7 @@ describe('SubscribreButton component', () => {
     expect(signInMocked).toHaveBeenCalled()
   });
 
-  it('=> Redirects to post when user already has a subscription', () => {
+  it('=> Redirect to post when user already has a subscription', () => {
 
     const useRouterMocked = mocked(useRouter)
     const useSessionMocked = mocked(useSession)
@@ -64,7 +64,7 @@ describe('SubscribreButton component', () => {
     const subscribeButton = screen.getByText('Subscribre now');
     fireEvent.click(subscribeButton)
 
-    expect(pushMock).toHaveBeenCalled();
+    expect(pushMock).toHaveBeenCalledWith('/posts');
 
   });
 });
