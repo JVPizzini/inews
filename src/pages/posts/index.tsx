@@ -21,7 +21,7 @@ type PostsProps = {
   posts: post[],
 }
 
-export default function Post({ posts }: PostsProps) {
+export default function Posts({ posts }: PostsProps) {
 
   const [session] = useSession();
 

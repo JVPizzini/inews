@@ -1,8 +1,7 @@
 
 // lib
 import { render, screen } from '@testing-library/react';
-import Post, { getStaticProps } from '../../pages/posts';
-import { useSession } from 'next-auth/client';
+import Posts, { getStaticProps } from '../../pages/posts';
 import { mocked } from 'jest-mock';
 import { getPrismicClient } from '../../services/prismic';
 
@@ -26,31 +25,49 @@ describe('Posts page', () => {
 
   it('Renders correctly', () => {
 
-    render(<Post posts={posts} />)
+    render(<Posts posts={posts} />)
 
     expect(screen.getByText('fake-title')).toBeInTheDocument()
 
   });
 
-  it('loads initial data', () => {
+  it('loads initial data', async () => {
 
     const getPrismicMocked = mocked(getPrismicClient)
 
     getPrismicMocked.mockReturnValueOnce({
       query: jest.fn().mockResolvedValueOnce({
         results: [{
-          uid: 'fake-uid',
-          title: 'fake-title',
-          content:'fake-content',
-          ast_publication_date: new Date()
+          uid: 'fake-slug',
+          data: {
+            title: [{
+              type: 'fake-type',
+              text: 'fake-title'
+            }],
+            content: [{
+              type: 'paragraph',
+              text: 'fake-excerpt'
+            }],
+          },
+          last_publication_date: '01-01-2022'
         }
         ]
       })
     } as any)
 
-    render(<Post posts={posts} />)
+    const response = await getStaticProps({})
 
-    expect(screen.getByText('fake-title')).toBeInTheDocument()
-
+    expect(response).toEqual(
+      expect.objectContaining({
+        props: {
+          posts: [{
+            slug: 'fake-slug',
+            title: 'fake-title',
+            excerpt: 'fake-excerpt',
+            updatedAt: '01 de janeiro de 2022',
+          }]
+        }
+      })
+    )
   })
 }) 
