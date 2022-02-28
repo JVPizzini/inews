@@ -20,11 +20,10 @@ describe('Post page', () => {
 
   it('Renders correctly', () => {
 
-    const { debug } = render(<Post post={post} />)
+    render(<Post post={post} />)
 
     expect(screen.getByText('fake-title')).toBeInTheDocument()
     expect(screen.getByText('fake-content')).toBeInTheDocument()
-
   });
 
   it('redirects user if no subscription is found', async () => {

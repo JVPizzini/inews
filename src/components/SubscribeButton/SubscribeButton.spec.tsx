@@ -14,7 +14,7 @@ describe('SubscribreButton component', () => {
 
     useSessionMocked.mockReturnValueOnce([null, false])
 
-    const { debug } = render(<SubscribeButton />)
+    render(<SubscribeButton />)
 
     expect(screen.getByText('Subscribre now')).toBeInTheDocument()
   });
